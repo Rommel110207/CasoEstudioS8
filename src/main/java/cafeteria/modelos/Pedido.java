@@ -1,70 +1,46 @@
 package cafeteria.modelos;
+
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
-public class Pedido
-{
-    private static int contadorID= 1;
+
+public class Pedido {
+    // Variable estática  que actúa como Primary Key
+    private static int contadorID = 1;
+
     private int idPedido;
     private List<Producto> productos;
     private String estado;
 
-
-
-    public Pedido(int idPedido, List<Producto> productos, String estado) {
-        this.idPedido = contadorID++;
-        this.productos = new ArrayList<>();
-        this.estado = "Registrado";
+    // CONSTRUCTOR PRINCIPAL (Este es el que llama el Cajero)
+    public Pedido() {
+        this.idPedido = contadorID++; // Asigna el ID actual y luego suma 1
+        this.productos = new ArrayList<>(); // Inicializa la lista vacía
+        this.estado = "Registrado"; // Estado inicial por defecto
 
         JOptionPane.showMessageDialog(null, "Pedido Generado #" + this.idPedido);
     }
 
-    public Pedido() {
-
+    public void anadirProducto(Producto p) {
+        this.productos.add(p);
+        JOptionPane.showMessageDialog(null, "Pedido #" + this.idPedido + " - Se agregó: " + p.getNombre());
     }
 
-    public void anadirProducto(Producto  p){
-        productos.add(p);
-
-        JOptionPane.showMessageDialog(null, "Pedido #" + idPedido + "Se agregó" + p.getNombre());
-    }
-
-    public void cambiarEstado(String e)
-    {
+    public void cambiarEstado(String e) {
         this.estado = e;
-        JOptionPane.showMessageDialog(null, "Pedido #" + idPedido + "** Estado: " + this.estado);
-
+        JOptionPane.showMessageDialog(null, "Pedido #" + this.idPedido + " ** Estado: " + this.estado);
     }
 
-    public static int getContadorID() {
-        return contadorID;
-    }
-
-    public static void setContadorID(int contadorID) {
-        Pedido.contadorID = contadorID;
-    }
-
+    //Getters
     public int getIdPedido() {
         return idPedido;
-    }
-
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
     }
 
     public String getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public List<Producto> getProductos() {
+        return productos;
     }
 }
