@@ -9,10 +9,7 @@ public class Pedido
     private List<Producto> productos;
     private String estado;
 
-    public Pedido()
-    {
 
-    }
 
     public Pedido(int idPedido, List<Producto> productos, String estado) {
         this.idPedido = contadorID++;
@@ -20,6 +17,10 @@ public class Pedido
         this.estado = "Registrado";
 
         JOptionPane.showMessageDialog(null, "Pedido Generado #" + this.idPedido);
+    }
+
+    public Pedido() {
+
     }
 
     public void anadirProducto(Producto  p){
