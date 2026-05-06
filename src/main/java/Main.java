@@ -23,7 +23,8 @@ public class Main {
                 + "Seleccione una opción:";
 
         do {
-            String input = JOptionPane.showInputDialog(null, menu, "Java Café", JOptionPane.QUESTION_MESSAGE);
+            String input = JOptionPane.showInputDialog(null, menu, "Cafeteria Universitaria" +
+                    "", JOptionPane.QUESTION_MESSAGE);
 
             if (input == null) {
                 opcion = 6;
@@ -36,17 +37,18 @@ public class Main {
                 switch (opcion) {
                     case 1: // Nuevo pedido
                         String nCli = JOptionPane.showInputDialog("Nombre del Cliente:");
-                        if (nCli != null && !nCli.trim().isEmpty()) {
+                        if (nCli != null && !nCli.trim().isEmpty())
+                        {
                             Cliente cliente = new Cliente(nCli);
                             cliente.hacerPedido();
 
-                            // El cajero crea el pedido (Aquí nacerá con ID automático y estado "Registrado")
+                            //El cajero crea el pedido
                             Pedido p = cajero.recibirPedido();
                             historialPedidos.add(p);
                         }
                         break;
 
-                    case 2: // Agregar Producto
+                    case 2: //Agregar Producto
                         int idA = leerId();
                         Pedido pA = buscarPedido(idA);
 
@@ -69,11 +71,11 @@ public class Main {
                         }
                         break;
 
-                    case 3: // Historial detallado
+                    case 3: //Historial detallado
                         if (historialPedidos.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "No hay pedidos registrados.");
                         } else {
-                            StringBuilder sb = new StringBuilder("--- HISTORIAL ---\n");
+                            StringBuilder sb = new StringBuilder("*** Historial de Pedidos ***\n");
                             for (Pedido p : historialPedidos) {
                                 sb.append("Pedido #").append(p.getIdPedido())
                                         .append(" [Estado: ").append(p.getEstado()).append("]\n");
@@ -82,14 +84,14 @@ public class Main {
                         }
                         break;
 
-                    case 4: // Procesar pedido
+                    case 4: //Procesar pedido
                         int idP = leerId();
                         Pedido pP = buscarPedido(idP);
 
                         if (pP != null) {
                             if ("Registrado".equals(pP.getEstado())) {
                                 cajero.enviarAlaCocina(pP);
-                                // Validamos si la cocina lo terminó (Revisa que tu Cocina asigne "¡Listo!")
+                                // Validar si la cocina lo terminó
                                 if ("¡Listo!".equals(pP.getEstado()) || "Listo".equals(pP.getEstado())) {
                                     cajero.notificarCliente();
                                 }
@@ -99,7 +101,7 @@ public class Main {
                         }
                         break;
 
-                    case 5: // Borrar pedido
+                    case 5: //Borrar pedido
                         int idB = leerId();
                         Pedido pB = buscarPedido(idB);
                         if (pB != null) {
@@ -108,7 +110,7 @@ public class Main {
                         }
                         break;
 
-                    case 6: // Salir
+                    case 6: //Salir
                         JOptionPane.showMessageDialog(null, "Saliendo del sistema de cafetería...");
                         break;
 
@@ -124,7 +126,7 @@ public class Main {
         } while (opcion != 6);
     }
 
-    // --- MÉTODOS AUXILIARES ---
+    //Metodos auxiliares
     private static Pedido buscarPedido(int id) {
         for (Pedido p : historialPedidos) {
             if (p.getIdPedido() == id) {

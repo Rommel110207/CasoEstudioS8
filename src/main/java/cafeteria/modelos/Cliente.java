@@ -17,11 +17,13 @@ public class Cliente
 
     }
 
-    public String getNombreCliente() {
+    public String getNombreCliente()
+    {
         return nombreCliente;
     }
 
-    public void setNombreCliente(String nombreCliente) {
+    public void setNombreCliente(String nombreCliente)
+    {
         this.nombreCliente = nombreCliente;
     }
 }

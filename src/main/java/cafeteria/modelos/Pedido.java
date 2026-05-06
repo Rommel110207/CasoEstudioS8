@@ -21,7 +21,8 @@ public class Pedido {
         JOptionPane.showMessageDialog(null, "Pedido Generado #" + this.idPedido);
     }
 
-    public void anadirProducto(Producto p) {
+    public void anadirProducto(Producto p)
+    {
         this.productos.add(p);
         JOptionPane.showMessageDialog(null, "Pedido #" + this.idPedido + " - Se agregó: " + p.getNombre());
     }
@@ -32,15 +33,19 @@ public class Pedido {
     }
 
     //Getters
-    public int getIdPedido() {
+    public int getIdPedido()
+    {
         return idPedido;
     }
 
-    public String getEstado() {
+    public String getEstado()
+
+    {
         return estado;
     }
 
-    public List<Producto> getProductos() {
+    public List<Producto> getProductos()
+    {
         return productos;
     }
 }
