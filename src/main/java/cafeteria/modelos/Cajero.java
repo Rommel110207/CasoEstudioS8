@@ -1,32 +1,40 @@
 package cafeteria.modelos;
 
-public class Cajero {
-    private int numeroPedido;
-    private String nombreCajero;
+import javax.swing.*;
+import java.util.jar.JarEntry;
 
+public class Cajero
+{
+
+    private String nombreCajero;
+    private Cocina cocina;
 
     public Cajero() {
     }
 
-    public Cajero(int numeroPedido, String nombreCajero) {
-        this.numeroPedido = numeroPedido;
+    public Cajero(String nombreCajero, Cocina cocina) {
         this.nombreCajero = nombreCajero;
+        this.cocina = cocina;
     }
 
-    public int getNumeroPedido() {
-        return numeroPedido;
+    public Pedido recibirPedido()
+    {
+        JOptionPane.showMessageDialog(null, "Cajero " + this.nombreCajero + " está recibiendo el pedido...");
+
+        return new Pedido();
     }
 
-    public void setNumeroPedido(int numeroPedido) {
-        this.numeroPedido = numeroPedido;
+    public void enviarAlaCocina(Pedido pedido)
+    {
+
+        JOptionPane.showMessageDialog(null, "Cajero " + this.nombreCajero + " está enviando el pedido #" + pedido.getIdPedido() + " a la cocina...");
+
+        cocina.prepararElPedido(pedido);
     }
 
-    public String getNombreCajero() {
-        return nombreCajero;
-    }
-
-    public void setNombreCajero(String nombreCajero) {
-        this.nombreCajero = nombreCajero;
+    public void notificarCliente()
+    {
+        JOptionPane.showMessageDialog(null, "Cajero " + this.nombreCajero + this.nombreCajero + "Llamando al cliente a que reciba su pedido listo " );
     }
 }
 

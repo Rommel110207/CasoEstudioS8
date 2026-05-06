@@ -1,35 +1,27 @@
 package cafeteria.modelos;
+import javax.swing.JOptionPane;
 
 public class Cliente
 {
-    private String nombre;
-    private String apellido;
+    private String nombreCliente;
 
-    public Cliente() {}
-    public Cliente(String nombre, String apellido)
+    public Cliente() {
+    }
+    public Cliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public void hacerPedido()
     {
-        this.nombre = nombre;
-        this.apellido = apellido;
+        JOptionPane.showMessageDialog(null, "Cliente " + this.nombreCliente + ": Quiero hacer un pedido por favor");
+
     }
 
-    public String solicitarPedido()
-    {
-        return "";
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 }

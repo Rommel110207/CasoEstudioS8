@@ -27,4 +27,43 @@ public class Pedido
 
         JOptionPane.showMessageDialog(null, "Pedido #" + idPedido + "Se agregó" + p.getNombre());
     }
+
+    public void cambiarEstado(String e)
+    {
+        this.estado = e;
+        JOptionPane.showMessageDialog(null, "Pedido #" + idPedido + "** Estado: " + this.estado);
+
+    }
+
+    public static int getContadorID() {
+        return contadorID;
+    }
+
+    public static void setContadorID(int contadorID) {
+        Pedido.contadorID = contadorID;
+    }
+
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }
