@@ -12,7 +12,7 @@ public class Pedido {
     private List<Producto> productos;
     private String estado;
 
-    // CONSTRUCTOR PRINCIPAL (Este es el que llama el Cajero)
+
     public Pedido() {
         this.idPedido = contadorID++; // Asigna el ID actual y luego suma 1
         this.productos = new ArrayList<>(); // Inicializa la lista vacía
